@@ -131,22 +131,37 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data Population (Datos de prueba)
+-- Data Population (Datos de prueba - Meta Deportiva)
 -- -----------------------------------------------------
 
+-- Categorías Reales
 INSERT INTO categorias (nombre, descripcion) VALUES 
-('Calzado', 'Tenis para correr y casuales'), 
-('Ropa', 'Playeras y shorts deportivos'), 
-('Accesorios', 'Balones, gorras y más');
+('Fútbol', 'Balones, tachones y espinilleras'),
+('Basquetbol', 'Balones, canastas y accesorios'),
+('Voleibol', 'Redes, balones y rodilleras'),
+('Ropa Deportiva', 'Jerseys, shorts y pants'),
+('Calzado', 'Tenis para correr y entrenamiento');
 
+-- Usuarios de Prueba (Nota: Las contraseñas se actualizarán al implementar encriptación)
 INSERT INTO usuarios (nombre_completo, email, password, rol) VALUES 
 ('Admin General', 'admin@metadeportiva.com', 'admin123', 'admin'),
 ('Cliente Feliz', 'cliente@gmail.com', '12345', 'cliente');
 
+-- Productos Reales
 INSERT INTO productos (nombre, precio, stock, categoria_id) VALUES 
-('Nike Air Max', 2500.00, 10, 1), 
-('Adidas Ultraboost', 3200.00, 5, 1),
-('Balón Oficial', 500.00, 50, 3);
+-- Fútbol (ID 1)
+('Balón Adidas Champions', 850.00, 20, 1),
+('Espinilleras Nike', 350.00, 15, 1),
+-- Basquetbol (ID 2)
+('Balón Wilson NBA', 900.00, 10, 2),
+-- Voleibol (ID 3)
+('Balón Molten V5', 750.00, 25, 3),
+('Rodilleras Asics', 400.00, 30, 3),
+-- Ropa (ID 4)
+('Jersey Selección Mexicana', 1200.00, 50, 4),
+('Short Deportivo DryFit', 250.00, 40, 4),
+-- Calzado (ID 5)
+('Tenis Running Puma', 1800.00, 12, 5);
 
 -- -----------------------------------------------------
 -- REQUISITO: Crear usuario con nombre del proyecto

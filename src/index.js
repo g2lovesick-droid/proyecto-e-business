@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const myConnection = require('express-myconnection');
 
 const app = express();
@@ -20,11 +20,11 @@ app.set("views",path.join(__dirname, 'views'));
 app.use(morgan('dev'));
 app.use(myConnection(mysql, {
     host: 'localhost',
-    user: 'Yahir',
+    user: 'meta_user',        
     password: 'lausus24',
     port: 3306,
-    database: 'dbs7b25'
-}));
+    database: 'meta_deportiva' 
+}, 'single'));
 
 app.use('/', categoriasRoutes);
 app.listen(app.get('port'), () => {

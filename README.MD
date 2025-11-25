@@ -2,18 +2,21 @@
 
 ## 1. Base de Datos
 
-1.  Iniciar el servicio de MySQL (con XAMPP, WAMP, etc.).
-2.  Correr el script `/db/dbstarshoes.sql` en MySQL Workbench.
-3.  Esto crea la base de datos `dbs7b25` y el usuario `Yahir`.
+Requisitos: Tener instalado **MySQL Server** (Versión 8.0 o superior). No es necesario XAMPP.
 
-## 2. Instalar Módulos
+1.  Abrir la terminal de MySQL o MySQL Workbench.
+2.  Ejecutar el script SQL que se encuentra en la carpeta `/db` (actualizar con el nuevo script generado).
+3.  Esto creará automáticamente la base de datos `db/meta_deportiva.sql`, las tablas y el usuario `Yahir` necesario para la conexión.
 
-Correr este comando en la terminal para instalar los paquetes:
+## 2. Instalación
+
+Abrir una terminal en la carpeta del proyecto y ejecutar el siguiente comando para descargar las dependencias (incluyendo mysql2):
 
 ```bash
 npm install
 
-## Correr proyecto
+##Ejecutar proyecto
 node src/index.js
 
-Se puede ver en: http://localhost:3000
+## Git:
+https://github.com/g2lovesick-droid/proyecto-e-business

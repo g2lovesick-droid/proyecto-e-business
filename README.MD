@@ -18,5 +18,12 @@ npm install
 ##Ejecutar proyecto
 node src/index.js
 
+## Notas sobre la Autenticación (Práctica 10)
+
+El proyecto cuenta con sistema de Login y Registro con encriptación (Bcrypt).
+
+**Importante:** Los usuarios pre-cargados en la base de datos (Admin General / Cliente Feliz) tienen contraseñas de prueba sin encriptar.
+Para probar la funcionalidad de Login y ver la encriptación en la base de datos, por favor **registre un usuario nuevo** desde la interfaz web.
+
 ## Git:
 https://github.com/g2lovesick-droid/proyecto-e-business

@@ -84,10 +84,30 @@ function logout(req, res) {
     }
 }
 
+//Proteger rutas de Admin
+
+function checkAdmin(req, res, next) {
+    // 1. Verificamos si hay sesión iniciada
+    if (req.session.loggedin) {
+        // 2. Verificamos si el rol es 'admin'
+        if (req.session.rol === 'admin') {
+            next(); // ¡Pase usted, jefe! Continúa a la siguiente ruta.
+        } else {
+            // Si es cliente, lo mandamos al inicio con un mensaje (opcional)
+            res.redirect('/'); 
+        }
+    } else {
+        // Si ni siquiera está logueado, al login
+        res.redirect('/login');
+    }
+}
+
+
 module.exports = {
     renderRegister,
     renderLogin,
     register,
     login,
-    logout
+    logout,
+    checkAdmin
 };

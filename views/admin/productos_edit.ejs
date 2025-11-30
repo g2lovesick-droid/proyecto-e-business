@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header bg-info text-white">
+                        <h4>Editar Producto</h4>
+                    </div>
+                    <div class="card-body">
+                        
+                        <form action="/admin/productos/update/<%= data.id %>" method="POST">
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Nombre del Producto</label>
+                                <input type="text" name="nombre" value="<%= data.nombre %>" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Descripción</label>
+                                <textarea name="descripcion" class="form-control"><%= data.descripcion %></textarea>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label">Precio</label>
+                                    <input type="number" step="0.01" name="precio" value="<%= data.precio %>" class="form-control" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label">Stock</label>
+                                    <input type="number" name="stock" value="<%= data.stock %>" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Categoría</label>
+                                <select name="categoria_id" class="form-select" required>
+                                    <% if (categories) { %>
+                                        <% for(var i = 0; i < categories.length; i++) { %>
+                                            <option value="<%= categories[i].id %>" <%= data.categoria_id == categories[i].id ? 'selected' : '' %>>
+                                                <%= categories[i].nombre %>
+                                            </option>
+                                        <% } %>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-info text-white">Actualizar Producto</button>
+                                <a href="/admin/productos" class="btn btn-secondary">Cancelar</a>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
